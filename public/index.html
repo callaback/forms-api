@@ -1,69 +1,94 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf8">
-        <meta name="theme-color" content="#d86300">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="icon" type="image/png" href="https://www.cloudflare.com/favicon-128.png">
-        <link rel="stylesheet" href="/index.css">
-    </head>
-    <title>Forms API</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#d86300">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://www.cloudflare.com/favicon-128.png">
+    <link rel="stylesheet" href="./index.css">
+    <title>Forms API | Cloudflare</title>
   </head>
   <body>
-    <form method="POST" action="/api/submit">
-      <div class="input">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" />
-      </div>
+    <main>
+      <h1>Cloudflare Forms API</h1>
+      
+      <blockquote>
+        <p>Welcome to our contact form! Please fill out the information below and we'll get back to you as soon as possible.</p>
+        <p>All fields are required unless otherwise noted.</p>
+      </blockquote>
+      
+      <form method="POST" action="/api/submit">
+        <div class="input">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+        </div>
 
-      <div class="input">
-        <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" />
-      </div>
+        <div class="input">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+        </div>
 
-      <div class="input">
-        <label for="referers">How did u hear about us?</label>
-        <select id="referers" name="referers">
-          <option hidden disabled selected value></option>
-          <option value="Facebook">Facebook</option>
-          <option value="Twitter">Twitter</option>
-          <option value="Google">Google</option>
-          <option value="Bing">Bing</option>
-          <option value="Friends">Friends</option>
-        </select>
-      </div>
+        <div class="input">
+          <label for="referers">How did you hear about us?</label>
+          <select id="referers" name="referers" required>
+            <option value="" hidden disabled selected>Select an option</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Twitter">Twitter</option>
+            <option value="Google">Google Search</option>
+            <option value="Bing">Bing</option>
+            <option value="Friends">Friends or Colleagues</option>
+            <option value="Advertisement">Online Advertisement</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
-      <div class="checklist">
-        <label>Which of the following do you use the most?</label>
-        <ul>
-          <li>
-            <input id="m1" type="checkbox" name="movies" value="Space Jam" />
-            <label for="m1">Windows</label>
-          </li>
-          <li>
-            <input
-              id="m2"
-              type="checkbox"
-              name="movies"
-              value="Android"
-            />
-            <label for="m2">Android</label>
-          </li>
-          <li>
-            <input id="m3" type="checkbox" name="movies" value="iPhone" />
-            <label for="m3">iPhone</label>
-          </li>
-          <li>
-            <input id="m4" type="checkbox" name="movies" value="macOS" />
-            <label for="m4">macOS</label>
-          </li>
-        </ul>
-      </div>
+        <div class="checklist">
+          <label>Which of the following platforms do you use the most? (Select all that apply)</label>
+          <ul>
+            <li>
+              <input id="p1" type="checkbox" name="platforms" value="Windows" />
+              <label for="p1">Windows</label>
+            </li>
+            <li>
+              <input id="p2" type="checkbox" name="platforms" value="Android" />
+              <label for="p2">Android</label>
+            </li>
+            <li>
+              <input id="p3" type="checkbox" name="platforms" value="iPhone" />
+              <label for="p3">iPhone (iOS)</label>
+            </li>
+            <li>
+              <input id="p4" type="checkbox" name="platforms" value="macOS" />
+              <label for="p4">macOS</label>
+            </li>
+            <li>
+              <input id="p5" type="checkbox" name="platforms" value="Linux" />
+              <label for="p5">Linux</label>
+            </li>
+          </ul>
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <div class="input">
+          <label for="message">Additional Message (Optional)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us more about your inquiry..."></textarea>
+        </div>
+
+        <div class="input">
+          <label>
+            <input type="checkbox" name="newsletter" value="subscribe" checked />
+            Subscribe to our newsletter for updates and offers
+          </label>
+        </div>
+
+        <button type="submit">Submit Form</button>
+        
+        <div class="form-footer">
+          <p>Your information is secure and protected by Cloudflare.</p>
+          <p><small>By submitting this form, you agree to our <a href="#" style="color: #f6821f;">Privacy Policy</a>.</small></p>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
