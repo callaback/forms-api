@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <meta name="theme-color" content="#d86300">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" type="image/png" href="https://www.cloudflare.com/favicon-128.png">
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <title>Forms API</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body>
+    <form method="POST" action="/api/submit">
+      <div class="input">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" />
+      </div>
+
+      <div class="input">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" />
+      </div>
+
+      <div class="input">
+        <label for="referers">How did u hear about us?</label>
+        <select id="referers" name="referers">
+          <option hidden disabled selected value></option>
+          <option value="Facebook">Facebook</option>
+          <option value="Twitter">Twitter</option>
+          <option value="Google">Google</option>
+          <option value="Bing">Bing</option>
+          <option value="Friends">Friends</option>
+        </select>
+      </div>
+
+      <div class="checklist">
+        <label>Which of the following do you use the most?</label>
+        <ul>
+          <li>
+            <input id="m1" type="checkbox" name="movies" value="Space Jam" />
+            <label for="m1">Windows</label>
+          </li>
+          <li>
+            <input
+              id="m2"
+              type="checkbox"
+              name="movies"
+              value="Android"
+            />
+            <label for="m2">Android</label>
+          </li>
+          <li>
+            <input id="m3" type="checkbox" name="movies" value="iPhone" />
+            <label for="m3">iPhone</label>
+          </li>
+          <li>
+            <input id="m4" type="checkbox" name="movies" value="macOS" />
+            <label for="m4">macOS</label>
+          </li>
+        </ul>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
