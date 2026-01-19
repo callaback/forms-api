@@ -1,94 +1,218 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#d86300">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="https://www.cloudflare.com/favicon-128.png">
-    <link rel="stylesheet" href="./index.css">
-    <title>Forms API | Cloudflare</title>
-  </head>
-  <body>
-    <main>
-      <h1>Cloudflare Forms API</h1>
-      
-      <blockquote>
-        <p>Welcome to our contact form! Please fill out the information below and we'll get back to you as soon as possible.</p>
-        <p>All fields are required unless otherwise noted.</p>
-      </blockquote>
-      
-      <form method="POST" action="/api/submit">
-        <div class="input">
-          <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" placeholder="Enter your full name" required />
-        </div>
+	<head>
+		<meta charset="utf-8">
+		<meta name="theme-color" content="#d86300">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="https://www.cloudflare.com/favicon-128.png">
+		<link rel="stylesheet" href="./index.css">
+		<title>Forms API | Cloudflare</title>
+		<style>
+			/* Compact version CSS */
+			* {
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+			}
+			
+			body {
+					font-family: system-ui,-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+					background: linear-gradient(135deg, #003682 0%, #001f4d 100%);
+					min-height: 100vh;
+					padding: 20px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+			}
+			
+			.form-container {
+					background: white;
+					border-radius: 12px;
+					padding: 30px;
+					max-width: 500px;
+					width: 100%;
+					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+					border-top: 4px solid #f6821f;
+			}
+			
+			h1 {
+					color: #003682;
+					text-align: center;
+					margin-bottom: 20px;
+					font-size: 1.5rem;
+			}
+			
+			.form-group {
+					margin-bottom: 15px;
+			}
+			
+			label {
+					display: block;
+					margin-bottom: 5px;
+					color: #003682;
+					font-weight: 500;
+					font-size: 0.9rem;
+			}
+			
+			input[type="text"],
+			input[type="email"],
+			select,
+			textarea {
+					width: 100%;
+					padding: 10px;
+					border: 1px solid #ddd;
+					border-radius: 6px;
+					font-size: 0.95rem;
+					transition: border-color 0.3s;
+			}
+			
+			input[type="text"]:focus,
+			input[type="email"]:focus,
+			select:focus,
+			textarea:focus {
+					outline: none;
+					border-color: #f6821f;
+					box-shadow: 0 0 0 2px rgba(246, 130, 31, 0.2);
+			}
+			
+			.checkbox-group {
+					background: #f8f9fa;
+					padding: 15px;
+					border-radius: 8px;
+					margin-bottom: 15px;
+					border: 1px solid #e9ecef;
+			}
+			
+			.checkbox-item {
+					display: flex;
+					align-items: center;
+					margin-bottom: 8px;
+			}
+			
+			.checkbox-item input {
+					margin-right: 10px;
+			}
+			
+			.checkbox-item label {
+					margin-bottom: 0;
+					cursor: pointer;
+			}
+			
+			button[type="submit"] {
+					background: linear-gradient(135deg, #f6821f 0%, #e67300 100%);
+					color: white;
+					border: none;
+					padding: 12px;
+					width: 100%;
+					border-radius: 6px;
+					font-weight: 600;
+					font-size: 1rem;
+					cursor: pointer;
+					transition: all 0.3s;
+					margin-top: 20px;
+			}
+			
+			button[type="submit"]:hover {
+					background: linear-gradient(135deg, #ff8c2a 0%, #f57c00 100%);
+					transform: translateY(-2px);
+					box-shadow: 0 4px 12px rgba(246, 130, 31, 0.3);
+			}
+			
+			.form-footer {
+					text-align: center;
+					margin-top: 20px;
+					padding-top: 15px;
+					border-top: 1px solid #eee;
+					font-size: 0.8rem;
+					color: #666;
+			}
+			
+			.form-footer a {
+					color: #f6821f;
+					text-decoration: none;
+			}
+			
+			.form-footer a:hover {
+					text-decoration: underline;
+			}
+			
+			@media (max-width: 600px) {
+					.form-container {
+							padding: 20px;
+					}
+					
+					h1 {
+							font-size: 1.3rem;
+					}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="form-container">
+			<h1>Cloudflare Contact Form</h1>
+			
+			<form method="POST" action="/api/submit">
+				<div class="form-group">
+					<label for="name">Full Name *</label>
+					<input id="name" name="name" type="text" placeholder="Enter your full name" required />
+				</div>
 
-        <div class="input">
-          <label for="email">Email Address</label>
-          <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
-        </div>
+				<div class="form-group">
+					<label for="email">Email Address *</label>
+					<input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+				</div>
 
-        <div class="input">
-          <label for="referers">How did you hear about us?</label>
-          <select id="referers" name="referers" required>
-            <option value="" hidden disabled selected>Select an option</option>
-            <option value="Facebook">Facebook</option>
-            <option value="Twitter">Twitter</option>
-            <option value="Google">Google Search</option>
-            <option value="Bing">Bing</option>
-            <option value="Friends">Friends or Colleagues</option>
-            <option value="Advertisement">Online Advertisement</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+				<div class="form-group">
+					<label for="referers">How did you hear about us? *</label>
+					<select id="referers" name="referers" required>
+						<option value="" hidden disabled selected>Select an option</option>
+						<option value="Facebook">Facebook</option>
+						<option value="Twitter">Twitter</option>
+						<option value="Google">Google Search</option>
+						<option value="Friends">Friends or Colleagues</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
 
-        <div class="checklist">
-          <label>Which of the following platforms do you use the most? (Select all that apply)</label>
-          <ul>
-            <li>
-              <input id="p1" type="checkbox" name="platforms" value="Windows" />
-              <label for="p1">Windows</label>
-            </li>
-            <li>
-              <input id="p2" type="checkbox" name="platforms" value="Android" />
-              <label for="p2">Android</label>
-            </li>
-            <li>
-              <input id="p3" type="checkbox" name="platforms" value="iPhone" />
-              <label for="p3">iPhone (iOS)</label>
-            </li>
-            <li>
-              <input id="p4" type="checkbox" name="platforms" value="macOS" />
-              <label for="p4">macOS</label>
-            </li>
-            <li>
-              <input id="p5" type="checkbox" name="platforms" value="Linux" />
-              <label for="p5">Linux</label>
-            </li>
-          </ul>
-        </div>
+				<div class="checkbox-group">
+					<label style="margin-bottom: 10px; display: block;">Platforms you use (optional):</label>
+					<div class="checkbox-item">
+						<input id="p1" type="checkbox" name="platforms" value="Windows" />
+						<label for="p1">Windows</label>
+					</div>
+					<div class="checkbox-item">
+						<input id="p2" type="checkbox" name="platforms" value="Android" />
+						<label for="p2">Android</label>
+					</div>
+					<div class="checkbox-item">
+						<input id="p3" type="checkbox" name="platforms" value="iPhone" />
+						<label for="p3">iPhone (iOS)</label>
+					</div>
+					<div class="checkbox-item">
+						<input id="p4" type="checkbox" name="platforms" value="macOS" />
+						<label for="p4">macOS</label>
+					</div>
+				</div>
 
-        <div class="input">
-          <label for="message">Additional Message (Optional)</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell us more about your inquiry..."></textarea>
-        </div>
+				<div class="form-group">
+					<label for="message">Additional Message (optional)</label>
+					<textarea id="message" name="message" rows="3" placeholder="Tell us more about your inquiry..."></textarea>
+				</div>
 
-        <div class="input">
-          <label>
-            <input type="checkbox" name="newsletter" value="subscribe" checked />
-            Subscribe to our newsletter for updates and offers
-          </label>
-        </div>
+				<div class="checkbox-item" style="margin-top: 10px;">
+					<input id="newsletter" type="checkbox" name="newsletter" value="subscribe" checked />
+					<label for="newsletter">Subscribe to newsletter</label>
+				</div>
 
-        <button type="submit">Submit Form</button>
-        
-        <div class="form-footer">
-          <p>Your information is secure and protected by Cloudflare.</p>
-          <p><small>By submitting this form, you agree to our <a href="#" style="color: #f6821f;">Privacy Policy</a>.</small></p>
-        </div>
-      </form>
-    </main>
-  </body>
+				<button type="submit">Submit Form</button>
+				
+				<div class="form-footer">
+					<p>Your information is secure and protected by Cloudflare.</p>
+					<p><small>By submitting this form, you agree to our <a href="#">Privacy Policy</a>.</small></p>
+				</div>
+			</form>
+		</div>
+	</body>
 </html>
