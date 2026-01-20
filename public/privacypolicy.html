@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Callaback</title>
+    <style>
+        :root {
+            --navy-blue: #0f172a;
+            --navy-blue-light: #1e293b;
+            --navy-blue-lighter: #334155;
+            --svelte-orange: #ff3e00;
+            --svelte-orange-light: #ff5c2e;
+            --svelte-orange-pale: #ffebeb;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #1a2238 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--navy-blue-lighter);
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--svelte-orange);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        h1 .svelte-accent {
+            color: var(--svelte-orange);
+        }
+        
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+        
+        .content {
+            background-color: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 62, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--svelte-orange);
+            color: var(--text-primary);
+            position: relative;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--svelte-orange-light);
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        a {
+            color: var(--svelte-orange);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-bottom: 1px dotted transparent;
+        }
+        
+        a:hover {
+            color: var(--svelte-orange-light);
+            border-bottom: 1px dotted var(--svelte-orange-light);
+        }
+        
+        .highlight-box {
+            background-color: rgba(255, 62, 0, 0.05);
+            border-left: 4px solid var(--svelte-orange);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .contact-details {
+            background-color: rgba(255, 62, 0, 0.08);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--navy-blue-lighter);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .footer strong {
+            color: var(--svelte-orange);
+        }
+        
+        .svelte-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--svelte-orange);
+            border-radius: 50%;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Decorative elements */
+        .navy-corner {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(15, 23, 42, 0.7) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .top-left {
+            top: -150px;
+            left: -150px;
+        }
+        
+        .bottom-right {
+            bottom: -150px;
+            right: -150px;
+        }
+        
+        .svelte-corner {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 62, 0, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .top-right {
+            top: -80px;
+            right: -80px;
+        }
+        
+        .bottom-left {
+            bottom: -80px;
+            left: -80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navy-corner top-left"></div>
+    <div class="navy-corner bottom-right"></div>
+    <div class="svelte-corner top-right"></div>
+    <div class="svelte-corner bottom-left"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Privacy <span class="svelte-accent">Policy</span></h1>
+            <div class="last-updated">Last Updated: January 19, 2026</div>
+        </header>
+        
+        <main class="content">
+            <h2>Introduction</h2>
+            <p>Callaback ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our contact form and API documentation services.</p>
+            
+            <h2>Information We Collect</h2>
+            
+            <h3>Information You Provide</h3>
+            <ul>
+                <li><strong>Contact Form:</strong> Name, email address, referral source, platform preferences, and optional messages</li>
+                <li><strong>Newsletter Subscription:</strong> Email address (if opted in)</li>
+            </ul>
+            
+            <h3>Automatically Collected Information</h3>
+            <ul>
+                <li><strong>Usage Data:</strong> IP address, browser type, access times, and pages viewed</li>
+                <li><strong>Analytics:</strong> We may use cookies and similar technologies to improve our services</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>Note:</strong> We collect minimal information necessary to provide and improve our services.</p>
+            </div>
+            
+            <h2>How We Use Your Information</h2>
+            <p>We use your information to:</p>
+            <ul>
+                <li>Respond to your inquiries and requests</li>
+                <li>Send newsletters (if subscribed)</li>
+                <li>Improve our services and documentation</li>
+                <li>Comply with legal obligations</li>
+            </ul>
+            
+            <h2>Data Protection</h2>
+            <p>Your information is:</p>
+            <ul>
+                <li><strong>Encrypted:</strong> Protected by Cloudflare's security infrastructure</li>
+                <li><strong>Limited Access:</strong> Only accessible to authorized personnel</li>
+                <li><strong>Not Sold:</strong> We never sell your personal information to third parties</li>
+            </ul>
+            
+            <h2>Third-Party Services</h2>
+            <p>We use:</p>
+            <ul>
+                <li><strong>Cloudflare:</strong> For hosting, security, and performance</li>
+                <li><strong>Analytics Tools:</strong> To understand usage patterns (anonymized data)</li>
+            </ul>
+            
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access your personal information</li>
+                <li>Request correction or deletion of your data</li>
+                <li>Opt-out of newsletter communications</li>
+                <li>Withdraw consent at any time</li>
+            </ul>
+            
+            <h2>Data Retention</h2>
+            <p>We retain your information only as long as necessary to fulfill the purposes outlined in this policy or as required by law.</p>
+            
+            <div class="contact-details">
+                <h2>Contact Us</h2>
+                <p>For privacy concerns or data requests, contact us at:</p>
+                <ul>
+                    <li><strong>Email:</strong> privacy@callaback.github.io</li>
+                    <li><strong>Website:</strong> <a href="https://callaback.github.io" target="_blank">callaback.github.io</a></li>
+                </ul>
+            </div>
+            
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last Updated" date.</p>
+        </main>
+        
+        <footer class="footer">
+            <p><span class="svelte-dot"></span> © 2026 Callaback. All rights reserved. <span class="svelte-dot"></span></p>
+        </footer>
+    </div>
+</body>
+</html>
